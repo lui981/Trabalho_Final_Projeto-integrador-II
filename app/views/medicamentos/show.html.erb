@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @medicamento.nome %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @medicamento.tipo %>
+</p>
+
+<p>
+  <strong>Quantidade:</strong>
+  <%= @medicamento.quantidade %>
+</p>
+
+<p>
+  <strong>Estoque:</strong>
+  <%= @medicamento.estoque %>
+</p>
+
+<p>
+  <strong>Preco:</strong>
+  <%= @medicamento.preco %>
+</p>
+
+<p>
+  <strong>Data validade:</strong>
+  <%= @medicamento.data_validade %>
+</p>
+
+<p>
+  <strong>Fornecedor:</strong>
+  <%= @medicamento.fornecedor_id %>
+</p>
+
+<%= link_to 'Edit', edit_medicamento_path(@medicamento) %> |
+<%= link_to 'Back', medicamentos_path %>

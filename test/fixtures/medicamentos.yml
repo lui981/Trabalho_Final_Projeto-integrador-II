@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  tipo: MyString
+  quantidade: 1
+  estoque: 1
+  preco: 1.5
+  data_validade: 2023-05-19
+  fornecedor: one
+
+two:
+  nome: MyString
+  tipo: MyString
+  quantidade: 1
+  estoque: 1
+  preco: 1.5
+  data_validade: 2023-05-19
+  fornecedor: two

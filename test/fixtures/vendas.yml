@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 2023-05-19
+  valor: 9.99
+  medicamento: one
+  cliente: one
+
+two:
+  data: 2023-05-19
+  valor: 9.99
+  medicamento: two
+  cliente: two

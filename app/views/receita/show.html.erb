@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Paciente:</strong>
+  <%= @receitum.paciente %>
+</p>
+
+<p>
+  <strong>Dosagem:</strong>
+  <%= @receitum.dosagem %>
+</p>
+
+<p>
+  <strong>Medicamento:</strong>
+  <%= @receitum.medicamento_id %>
+</p>
+
+<%= link_to 'Edit', edit_receitum_path(@receitum) %> |
+<%= link_to 'Back', receita_path %>

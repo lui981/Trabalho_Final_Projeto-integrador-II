@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Medicamentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Quantidade</th>
+      <th>Estoque</th>
+      <th>Preco</th>
+      <th>Data validade</th>
+      <th>Fornecedor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medicamentos.each do |medicamento| %>
+      <tr>
+        <td><%= medicamento.nome %></td>
+        <td><%= medicamento.tipo %></td>
+        <td><%= medicamento.quantidade %></td>
+        <td><%= medicamento.estoque %></td>
+        <td><%= medicamento.preco %></td>
+        <td><%= medicamento.data_validade %></td>
+        <td><%= medicamento.fornecedor_id %></td>
+        <td><%= link_to 'Show', medicamento %></td>
+        <td><%= link_to 'Edit', edit_medicamento_path(medicamento) %></td>
+        <td><%= link_to 'Destroy', medicamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Medicamento', new_medicamento_path %>

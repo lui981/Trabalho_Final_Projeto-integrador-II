@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @fornecedor.nome %>
+</p>
+
+<p>
+  <strong>Telefone:</strong>
+  <%= @fornecedor.telefone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @fornecedor.email %>
+</p>
+
+<p>
+  <strong>Cnpj cpf:</strong>
+  <%= @fornecedor.cnpj_cpf %>
+</p>
+
+<p>
+  <strong>Endereco:</strong>
+  <%= @fornecedor.endereco %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @fornecedor.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @fornecedor.estado %>
+</p>
+
+<%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
+<%= link_to 'Back', fornecedors_path %>
