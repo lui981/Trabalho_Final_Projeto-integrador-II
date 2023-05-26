@@ -1,16 +1,185 @@
+<!-- app/views/layouts/application.html.erb -->
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Farmaca</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>SysSistema</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .wrapper {
+      display: flex;
+      height: 100vh;
+    }
+    
+    /* Estilos do menu lateral */
+    #sidebar {
+      width: 250px;
+      background-color: #343a40;
+      color: #fff;
+    }
+    
+    #sidebar .sidebar-header {
+      padding: 20px;
+    }
+    
+    #sidebar ul.components {
+      padding: 20px 0;
+    }
+    
+    #sidebar ul p {
+      color: #fff;
+      padding: 10px;
+    }
+    
+    #sidebar ul li a {
+      color: #fff;
+      padding: 10px;
+      display: block;
+    }
+    
+    #sidebar ul li a:hover {
+      background-color: #868e96;
+    }
+    
+    #sidebar ul li.active > a {
+      background-color: #343a40;
+      color: #fff;
+    }
+    
+    /* Estilos do conteúdo */
+    #content {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    /* Estilos do botão sair */
+    .logout-button {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+      background-color: #343a40;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .logout-button:hover {
+      background-color: #868e96;
+    }
+    
+    
+    
+    #sidebarCollapse span {
+      font-size: 20px;
+    }
+    
+    /* Estilos do menu no responsivo */
+    .navbar-nav.ml-auto {
+      margin-left: auto !important;
+    }
+    
+    /* Estilos para as páginas específicas */
+    .content-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<body>
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <a href="" class="menulink"><h4>SysSistema</h4></a>
+      </div>
+      <ul class="list-unstyled components" class="menulink">
+        <li>
+          <a href="<%= fornecedors_path %>" class="menulink"><i class="fa fa-tasks fa-fw"></i> Fornecedors</a>
+        </li>
+        <li>
+          <a href="<%= medicamentos_path %>" class="menulink"><i class="fa fa-cart-plus fa-fw"></i> Medicamentos</a>
+        </li>
+        <li>
+          <a href="<%= vendas_path %>" class="menulink"><i class="fa fa-file-alt fa-fw"></i> Vendas</a>
+        </li>
+     
+        <li>
+          <a href="<%= clientes_path %>" class="menulink"><i class="fa fa-users fa-fw"></i> Clientes</a>
+        </li>
+        <li>
+        <a href="<%= receita_path %>" class="menulink"><i class="fa fa-user fa-fw"></i> Receita</a>
+      </li>
+        <li>
+          <a href="<%= users_path %>" class="menulink"><i class="fa fa-user fa-fw"></i> Usuários</a>
+        </li>
 
-  <body>
-    <%= yield %>
-  </body>
+        <li>
+          <a href="#configuracaosubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle menulink">
+            <i class="fas fa-cog"></i> Configurações
+          </a>
+          <ul class="collapse list-unstyled" id="configuracaosubmenu">
+            <li>
+              <a href="" class="menulink"><i class="fas fa-users fa-fw"></i> Professores</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="" class="menulink"><i class="fa fa-question fa-fw"></i> Ajuda</a>
+        </li>
+      </ul>
+      <ul class="list-unstyled CTAs">
+        <li>
+          <%= link_to('Sair', destroy_user_session_path, method: :delete, class: 'logout-button') %>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" class="btn btn-primary colorprimarybtn">
+            <i class="fas fa-align-left"></i>
+            <span>Menu</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto colorprimarybtn" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="">Dados Pessoais</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="content-container">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render :partial => 'layouts/utilscripts' %>
+</body>
 </html>

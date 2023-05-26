@@ -1,52 +1,64 @@
+
+
+
 <%= form_with(model: fornecedor) do |form| %>
+  
   <% if fornecedor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(fornecedor.errors.count, "error") %> prohibited this fornecedor from being saved:</h2>
-
-      <ul>
-        <% fornecedor.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <div id="error_explanation" class="panel panel-danger mensagem-erro-cabecalho">
+           <div class="panel-heading">
+               <h3 class="panel-title"><%= pluralize(fornecedor.errors.count, "error(s)") %> ao salvar fornecedor:</h3>
+            </div>
+           <div class="panel-body">
+             <ul>
+             <% fornecedor.errors.full_messages.each do |message| %>
+               <li><%= message %></li>
+             <% end %>
+             </ul>
+           </div>
+         </div>
+        
   <% end %>
+  
+  <div class="row">
+       <div class="col-lg-5 form-group">   
+           <%= form.label :nome, :class => 'control-label required' %>
+           <%= form.text_field :nome,  :class => 'form-control' %>
+       </div>
+        <div class="col-lg-3 form-group">   
+           <%= form.label :telefone, :class => 'control-label required' %>
+           <%= form.number_field :telefone, :class => 'form-control', :onkeypress=>"mask(this, mphone);", :onblur=>"mask(this, mphone);" %>
+       </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
 
-  <div class="field">
-    <%= form.label :telefone %>
-    <%= form.number_field :telefone %>
-  </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="col-lg-4 form-group">   
+  <%= form.label :email, :class => 'control-label' %>
+  <%= form.text_field :email, :class => 'form-control' %>
   </div>
+  <div class="row">
+<div class="col-lg-3 form-group">   
+    <%= form.label :cnpj_cpf, :class => 'control-label required' %>
+    <%= form.text_field :cnpj_cpf,  :class => 'form-control' %>
+</div>
+       <div class="col-lg-3 form-group">  
+           <%= form.label :endereco, :class => 'control-label' %>
+           <%= form.text_field :endereco, :class => 'form-control' %>
+       </div>
 
-  <div class="field">
-    <%= form.label :cnpj_cpf %>
-    <%= form.text_field :cnpj_cpf %>
-  </div>
+       <div class="col-lg-3 form-group">   
+           <%= form.label :cidade, :class => 'control-label ' %>
+           <%= form.text_field :cidade,  :class => 'form-control' %>
+       </div>
+        <div class="col-lg-3 form-group">   
+            <%= form.label :estado, :class => 'control-label ' %>
+            <%= form.text_field :estado,  :class => 'form-control' %>
+        </div>
+        </div>
 
-  <div class="field">
-    <%= form.label :endereco %>
-    <%= form.text_field :endereco %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :estado %>
-    <%= form.text_field :estado %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  <div class="row">
+          <div class="col-lg-7 form-group">  
+            <input type="submit" name="commit" class="btn btn-primary colorprimarybtn" value="Salvar " data-disable-with="Salvando" />
+            <%= link_to 'Voltar', fornecedors_path, :class => "btn btn-primary colorprimarybtn"%>
+          </div>
+      </div>
+   <% end %>  

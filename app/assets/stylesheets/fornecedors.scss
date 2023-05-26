@@ -1,3 +1,84 @@
 // Place all the styles related to the fornecedors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* Estilos para o formulário de fornecedor */
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  .control-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .colorprimarybtn {
+    color: #fff;
+  }
+  
+  /* Estilos para a mensagem de erro */
+  .panel {
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+  
+  .panel-danger {
+    border-color: #d9534f;
+  }
+  
+  .panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #a94442;
+    background-color: #f2dede;
+  }
+  
+  .panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .panel-body {
+    padding: 15px;
+    color: #a94442;
+    background-color: #f2dede;
+  }
+  
+  .panel-body ul {
+    margin-bottom: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  
+  .panel-body li {
+    margin-bottom: 5px;
+  }
+  
