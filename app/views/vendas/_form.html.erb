@@ -11,27 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :data %>
-    <%= form.date_select :data %>
+  <div class="row">  
+  <div class="col-lg-2 form-group">
+  <%= form.label :data, :class => 'control-label required' %>
+  <%= form.text_field :data,:type =>"date", :class => 'form-control' %>          
+  </div>
+  
+  <div class="col-lg-2 form-group">   
+  <%= form.label :valor, :class => 'control-label required' %>
+  <%= form.text_field :valor,  :class => 'form-control' %>
+</div>
+ 
+<div class="col-lg-3 form-group">   
+  <%= form.label :medicamento_id, :class => 'control-label required' %>
+  <%= form.collection_select :medicamento_id, Medicamento.all, :id, :nome, {:prompt => 'Selecionar'}, :class => 'form-control',:required=>true %> 
+</div>
+
+ 
+<div class="col-lg-4 form-group">   
+<%= form.label :cliente_id, :class => 'control-label required' %>
+<%= form.text_field :cliente_id,  :class => 'form-control' %>
+</div>
   </div>
 
-  <div class="field">
-    <%= form.label :valor %>
-    <%= form.text_field :valor %>
+  <div class="row">
+  <div class="col-lg-7 form-group">  
+    <input type="submit" name="commit" class="btn btn-primary colorprimarybtn" value="Salvar " data-disable-with="Salvando" />
+    <%= link_to 'Voltar', vendas_path, :class => "btn btn-primary colorprimarybtn"%>
   </div>
-
-  <div class="field">
-    <%= form.label :medicamento_id %>
-    <%= form.text_field :medicamento_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

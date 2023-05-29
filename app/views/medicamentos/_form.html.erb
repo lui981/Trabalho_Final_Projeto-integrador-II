@@ -11,42 +11,53 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
+  <div class="row">
+       <div class="col-lg-4 form-group">   
+           <%= form.label :nome, :class => 'control-label required' %>
+           <%= form.text_field :nome,  :class => 'form-control' %>
+       </div>
 
-  <div class="field">
-    <%= form.label :tipo %>
-    <%= form.text_field :tipo %>
-  </div>
+ 
+      
+       <div class="col-lg-4 form-group">   
+           <%= form.label :tipo, :class => 'control-label required' %>
+           <%= form.text_field :tipo,  :class => 'form-control' %>
+       </div>
 
-  <div class="field">
-    <%= form.label :quantidade %>
-    <%= form.number_field :quantidade %>
-  </div>
+      
+       <div class="col-lg-2 form-group">   
+           <%= form.label :quantidade, :class => 'control-label required' %>
+           <%= form.number_field :quantidade,  :class => 'form-control' %>
+       </div>
+      
 
-  <div class="field">
-    <%= form.label :estoque %>
-    <%= form.number_field :estoque %>
-  </div>
+       
+       <div class="col-lg-2 form-group">   
+           <%= form.label :estoque, :class => 'control-label required' %>
+           <%= form.number_field :estoque,  :class => 'form-control' %>
+       </div>
+       </div>
+       <div class="row">
+       <div class="col-lg-3 form-group">   
+       <%= form.label :preco, :class => 'control-label required' %>
+       <%= form.text_field :preco,  :class => 'form-control' %>
+   </div>
 
-  <div class="field">
-    <%= form.label :preco %>
-    <%= form.text_field :preco %>
+  <div class="col-lg-2 form-group">
+  <%= form.label :data_validade, :class => 'control-label required' %>
+  <%= form.text_field :data_validade,:type =>"date", :class => 'form-control' %>          
   </div>
+ 
+  <div class="col-lg-3 form-group">   
+  <%= form.label :fornecedor_id, :class => 'control-label required' %>
+  <%= form.collection_select :fornecedor_id, Fornecedor.all, :id, :nome, {:prompt => 'Selecionar'}, :class => 'form-control',:required=>true %> 
+</div>
+</div>
 
-  <div class="field">
-    <%= form.label :data_validade %>
-    <%= form.date_select :data_validade %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fornecedor_id %>
-    <%= form.text_field :fornecedor_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="row">
+<div class="col-lg-7 form-group">  
+  <input type="submit" name="commit" class="btn btn-primary colorprimarybtn" value="Salvar " data-disable-with="Salvando" />
+  <%= link_to 'Voltar', medicamentos_path, :class => "btn btn-primary colorprimarybtn"%>
+</div>
+</div>
 <% end %>

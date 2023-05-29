@@ -1,39 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <p id="notice" class="alert alert-info"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @fornecedor.nome %>
-</p>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Informações do Fornecedor</h5>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @fornecedor.telefone %>
-</p>
+          <p class="card-text">
+            <strong>Nome:</strong>
+            <%= @fornecedor.nome %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @fornecedor.email %>
-</p>
+          <p class="card-text">
+            <strong>Telefone:</strong>
+            <%= @fornecedor.telefone %>
+          </p>
 
-<p>
-  <strong>Cnpj cpf:</strong>
-  <%= @fornecedor.cnpj_cpf %>
-</p>
+          <p class="card-text">
+            <strong>Email:</strong>
+            <%= @fornecedor.email %>
+          </p>
 
-<p>
-  <strong>Endereco:</strong>
-  <%= @fornecedor.endereco %>
-</p>
+          <p class="card-text">
+            <strong>Cnpj cpf:</strong>
+            <%= @fornecedor.cnpj_cpf %>
+          </p>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @fornecedor.cidade %>
-</p>
+          <p class="card-text">
+            <strong>Endereco:</strong>
+            <%= @fornecedor.endereco %>
+          </p>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @fornecedor.estado %>
-</p>
+          <p class="card-text">
+            <strong>Cidade:</strong>
+            <%= @fornecedor.cidade %>
+          </p>
 
-<%= link_to 'Edit', edit_fornecedor_path(@fornecedor) %> |
-<%= link_to 'Back', fornecedors_path %>
+          <p class="card-text">
+            <strong>Estado:</strong>
+            <%= @fornecedor.estado %>
+          </p>
+
+          <%= link_to 'Edit', edit_fornecedor_path(@fornecedor), class: "btn btn-primary" %>
+          <%= link_to 'Back', fornecedors_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

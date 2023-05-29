@@ -1,39 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <p id="notice" class="alert alert-info"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @medicamento.nome %>
-</p>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Informações do Medicamento</h5>
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @medicamento.tipo %>
-</p>
+          <p class="card-text">
+            <strong>Nome:</strong>
+            <%= @medicamento.nome %>
+          </p>
 
-<p>
-  <strong>Quantidade:</strong>
-  <%= @medicamento.quantidade %>
-</p>
+          <p class="card-text">
+            <strong>Tipo:</strong>
+            <%= @medicamento.tipo %>
+          </p>
 
-<p>
-  <strong>Estoque:</strong>
-  <%= @medicamento.estoque %>
-</p>
+          <p class="card-text">
+            <strong>Quantidade:</strong>
+            <%= @medicamento.quantidade %>
+          </p>
 
-<p>
-  <strong>Preco:</strong>
-  <%= @medicamento.preco %>
-</p>
+          <p class="card-text">
+            <strong>Estoque:</strong>
+            <%= @medicamento.estoque %>
+          </p>
 
-<p>
-  <strong>Data validade:</strong>
-  <%= @medicamento.data_validade %>
-</p>
+          <p class="card-text">
+            <strong>Preço:</strong>
+            <%= @medicamento.preco %>
+          </p>
 
-<p>
-  <strong>Fornecedor:</strong>
-  <%= @medicamento.fornecedor_id %>
-</p>
+          <p class="card-text">
+            <strong>Data de Validade:</strong>
+            <%= @medicamento.data_validade %>
+          </p>
 
-<%= link_to 'Edit', edit_medicamento_path(@medicamento) %> |
-<%= link_to 'Back', medicamentos_path %>
+          <p class="card-text">
+            <strong>Fornecedor:</strong>
+            <%= @medicamento.fornecedor_id %>
+          </p>
+
+          <%= link_to 'Editar', edit_medicamento_path(@medicamento), class: "btn btn-primary" %>
+          <%= link_to 'Voltar', medicamentos_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
