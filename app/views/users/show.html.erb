@@ -1,23 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <p id="notice" class="alert alert-info"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @user.nome %>
-</p>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Informações do Usuario</h5>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @user.telefone %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+            <p class="card-text">
+            <strong>Nome:</strong>
+            <%= @user.nome %>
+          </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+          <p class="card-text">
+            <strong>Telefone:</strong>
+            <%= @user.telefone %>
+          </p>
+          <p class="card-text">
+          <strong>Email:</strong>
+          <%= @user.email %>
+        </p>
+        <p class="card-text">
+        <strong>Password:</strong>
+        <%= @user.password %>
+        </p>
+        <%= link_to 'Edit', edit_user_path(@fornecedor), class: "btn btn-primary" %>
+        <%= link_to 'Back', fornecedors_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

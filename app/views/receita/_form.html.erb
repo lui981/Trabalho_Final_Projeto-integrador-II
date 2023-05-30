@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :paciente %>
-    <%= form.text_field :paciente %>
-  </div>
+  <div class="row">
 
-  <div class="field">
-    <%= form.label :dosagem %>
-    <%= form.text_field :dosagem %>
-  </div>
+  <div class="col-lg-3 form-group">   
+  <%= form.label :paciente, :class => 'control-label required' %>
+  <%= form.text_field :paciente,  :class => 'form-control' %>
+</div>
 
-  <div class="field">
-    <%= form.label :medicamento_id %>
-    <%= form.text_field :medicamento_id %>
-  </div>
+  <div class="col-lg-3 form-group">   
+  <%= form.label :dosagem, :class => 'control-label required' %>
+  <%= form.text_field :dosagem,  :class => 'form-control' %>
+</div>
+ 
+  <div class="col-lg-3 form-group">   
+  <%= form.label :medicamento_id, :class => 'control-label required' %>
+  <%= form.collection_select :medicamento_id, Fornecedor.all, :id, :nome, {:prompt => 'Selecionar'}, :class => 'form-control',:required=>true %> 
+</div>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="row">
+<div class="col-lg-7 form-group">  
+  <input type="submit" name="commit" class="btn btn-primary colorprimarybtn" value="Salvar " data-disable-with="Salvando" />
+  <%= link_to 'Voltar', medicamentos_path, :class => "btn btn-primary colorprimarybtn"%>
+</div>
+</div>
 <% end %>

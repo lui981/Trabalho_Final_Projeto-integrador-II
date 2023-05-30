@@ -11,27 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+  <div class="row">
+  <div class="col-lg-4 form-group">   
+      <%= form.label :nome, :class => 'control-label required' %>
+      <%= form.text_field :nome,  :class => 'form-control' %>
   </div>
+  </div>
+  <div class="row">
+   <div class="col-lg-4 form-group">   
+      <%= form.label :telefone, :class => 'control-label required' %>
+      <%= form.number_field :telefone, :class => 'form-control', :onkeypress=>"mask(this, mphone);", :onblur=>"mask(this, mphone);" %>
+  </div>
+  </div>
+  <div class="row">
+<div class="col-lg-4 form-group">   
+<%= form.label :email, :class => 'control-label required' %>
+<%= form.text_field :email, :class => 'form-control' %>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 form-group">   
+<%= form.label :passowrd, :class => 'control-label required' %>
+<%= form.text_field :passowrd, :class => 'form-control' %>
+</div>
+</div>
 
-  <div class="field">
-    <%= form.label :telefone %>
-    <%= form.text_field :telefone %>
+  <div class="row">
+  <div class="col-lg-7 form-group">  
+    <input type="submit" name="commit" class="btn btn-primary colorprimarybtn" value="Salvar " data-disable-with="Salvando" />
+    <%= link_to 'Voltar', fornecedors_path, :class => "btn btn-primary colorprimarybtn"%>
   </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</div>
 <% end %>

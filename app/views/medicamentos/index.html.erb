@@ -1,39 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="categdespesas index">
+      <h2>Medicamentos </h2>
+    <%= form_tag medicamentos_path( format:"html"), :method => 'get' do %>  
+      <div class="row">
+            <div class="col-lg-5  form-group">  
+                <%= text_field_tag :nome, params[:nome], :class => 'form-control', :placeholder=>"Digite o nome do Medicamento para pesquisar" %>  
+              </div>
+              <div class="col-lg-2 form-group">
+                <%= submit_tag "Pesquisar", :class => "btn btn-primary colorprimarybtn" %>
+              </div>
 
-<h1>Medicamentos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th>Quantidade</th>
-      <th>Estoque</th>
-      <th>Preco</th>
-      <th>Data validade</th>
-      <th>Fornecedor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+           <div class="col-lg-2 form-group">  
+                  <span class="input-group-btn" style="display: inline-block;"><button class="btn btn-primary colorprimarybtn" type="button" onclick="javascript: location.href='<%= new_medicamento_path %>';"><i class="fa fa-plus-circle"></i> Novo Medicamento</button></span>
+            </div>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    <div class="table-responsive">
+    <table class="table table-hover table-striped" cellpadding="0" cellspacing="0">
+<thead>
+<tr>
+<th>COD</th>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Preço</th>
+<th colspan="4"></th>
+</tr>
+</thead>
 
   <tbody>
-    <% @medicamentos.each do |medicamento| %>
-      <tr>
-        <td><%= medicamento.nome %></td>
-        <td><%= medicamento.tipo %></td>
-        <td><%= medicamento.quantidade %></td>
-        <td><%= medicamento.estoque %></td>
-        <td><%= medicamento.preco %></td>
-        <td><%= medicamento.data_validade %></td>
-        <td><%= medicamento.fornecedor_id %></td>
-        <td><%= link_to 'Show', medicamento %></td>
-        <td><%= link_to 'Edit', edit_medicamento_path(medicamento) %></td>
-        <td><%= link_to 'Destroy', medicamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <% @medicamentos.each do |medicamento| %>
+    <tr>
+      <td><%= "%06d"%medicamento.id %></td>
+      <td><%= medicamento.nome %></td>
+      <td><%= medicamento.tipo %></td>
+      <td><%= medicamento.preco %></td>
+      <td><%= link_to 'Visualizar', medicamento %></td>
+      <td><%= link_to 'Alterar', edit_medicamento_path(medicamento) %></td>   
+      <td><%= link_to 'Excluir', medicamento, method: :delete,remote: true, class: 'remove-tag', data: { confirm: 'Deseja excluir o medicamento?' } %></td>
+    </tr>
+  <% end %>
+    </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Medicamento', new_medicamento_path %>
+</div>
+</div>

@@ -118,7 +118,7 @@
           <a href="<%= fornecedors_path %>" class="menulink"><i class="fa fa-tasks fa-fw"></i> Fornecedors</a>
         </li>
         <li>
-          <a href="<%= medicamentos_path %>" class="menulink"><i class="fa fa-cart-plus fa-fw"></i> Medicamentos</a>
+          <a href="<%= medicamentos_path %>" class="menulink"><i class="fa fa-medkit fa-fw"></i> Medicamentos</a>
         </li>
         <li>
           <a href="<%= vendas_path %>" class="menulink"><i class="fa fa-file-alt fa-fw"></i> Vendas</a>
@@ -128,20 +128,27 @@
           <a href="<%= clientes_path %>" class="menulink"><i class="fa fa-users fa-fw"></i> Clientes</a>
         </li>
         <li>
-        <a href="<%= receita_path %>" class="menulink"><i class="fa fa-user fa-fw"></i> Receita</a>
+        <a href="<%= receita_path %>" class="menulink"><i class="fa fa-prescription fa-fw"></i> Receita</a>
+      
+
       </li>
         <li>
           <a href="<%= users_path %>" class="menulink"><i class="fa fa-user fa-fw"></i> Usuários</a>
         </li>
 
         <li>
-          <a href="#configuracaosubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle menulink">
-            <i class="fas fa-cog"></i> Configurações
-          </a>
-          <ul class="collapse list-unstyled" id="configuracaosubmenu">
-            <li>
-              <a href="" class="menulink"><i class="fas fa-users fa-fw"></i> Professores</a>
-            </li>
+        <a href="#configuracaosubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle menulink">
+        <i class="fas fa-cog"></i> Configurações
+      </a>
+      <ul class="collapse list-unstyled" id="configuracaosubmenu">
+        <li>
+          <a href="" class="menulink" id="modoEscuro"><i class="fas fa-moon fa-fw"></i> Modo Escuro</a>
+        </li>
+        <li>
+          <a href="" class="menulink" id="modoClaro"><i class="fas fa-sun fa-fw"></i> Modo Claro</a>
+        </li>
+      </ul>
+      
           </ul>
         </li>
         <li>
