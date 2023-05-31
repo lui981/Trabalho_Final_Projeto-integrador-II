@@ -5,6 +5,16 @@ class MedicamentosController < ApplicationController
   def index
     @medicamentos = Medicamento.all
   end
+  def relatorio
+    @medicamentos = Medicamento.all
+    respond_to do |format|
+      format.pdf do
+          pdf = RelatorioPdf.new(@medicamentos, @view_context) 
+          send_data pdf.render,
+          filename: "relatorio.pdf", type: "application/pdf", disposition: "inline"
+      end 
+    end
+  end
 
   # GET /medicamentos/1 or /medicamentos/1.json
   def show

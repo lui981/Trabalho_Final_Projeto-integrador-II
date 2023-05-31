@@ -4,9 +4,18 @@ Rails.application.routes.draw do
   resources :receita
   resources :vendas
   resources :clientes
-  resources :medicamentos
-  resources :fornecedors
-  root to: 'fornecedors#index'
+  resources :medicamentos, :path => "medicamentos" do
+    collection do
+      get "/relatorio"  => "medicamentos#relatorio", :as => "relatorio" 
+    end
+  end
 
-  
+  resources :fornecedors, :path => "fornecedors" do
+    collection do
+      get "/relatorio"  => "fornecedors#relatorio", :as => "relatorio" 
+    end
+  end
+
+root to: 'fornecedors#index'
+
 end
