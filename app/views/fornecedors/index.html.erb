@@ -30,7 +30,7 @@
 <th>Email</th>
 <th colspan="4"></th>
 </tr>
-</thead>
+
 
   <tbody>
   <% @fornecedors.each do |fornecedor| %>
@@ -41,7 +41,7 @@
       <td><%= fornecedor.email %></td>
       <td><%= link_to 'Visualizar', fornecedor %></td>
       <td><%= link_to 'Alterar', edit_fornecedor_path(fornecedor) %></td>   
-      <td><%= link_to 'Excluir', fornecedor, method: :delete,remote: true, class: 'remove-tag', data: { confirm: 'Deseja excluir o fornecedor?' } %></td>
+      <td><%= link_to 'Excluir', fornecedor, method: :delete,remote: true, class: 'remove-tag', data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
     </tbody>

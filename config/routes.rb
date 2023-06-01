@@ -15,7 +15,7 @@ Rails.application.routes.draw do
       get "/relatorio"  => "fornecedors#relatorio", :as => "relatorio" 
     end
   end
+  root to: 'fornecedors#index'
 
-root to: 'fornecedors#index'
 
 end
